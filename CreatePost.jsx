@@ -61,19 +61,19 @@ const CreatePost = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white"> 
       <div className="max-w-6xl mx-auto p-6">
         <div className="mb-8">
-          <h1 className="text-3xl bg-white text-slate-900 mb-2">Create Post</h1>
-          <p className="text-slate-600">Share your rhoughts with the world </p>
+          <h1 className="text-4xl font-bold text-[#172357] mb-2">Create Post</h1>
+          <p className="text-slate-500">Share your thoughts with your university community. </p>
         </div>
-        <div className="max-w-xl bg-white p-4 sm:p-8 rounded-xl shadow-md space-y-4">
+        <div className="max-w-xl bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-lg space-y-5">
           <div className="flex items-center gap-3">
-            <img src={user.profile_picture}  className="w-12 h-12"/>
+            <img src={user.profile_picture}  className="w-12 h-12 rounded-full border-2 border-[#172357] object-cover"/>
             <div>
-              <h2 className="font-semibold">{user.full_name}</h2>
+              <h2 className="font-semibold text-[#172357]">{user.full_name}</h2>
               <p className="text-sm text-gray-500">@{user.username}</p>
             </div>
           </div>
 
-          <textarea className="w-full resize-none max-h-20 mt-4 text-sm outline-none placeholder-gray-400"
+          <textarea className="w-full min-h-[130px] resize-none rounded-xl border border-slate-300 p-4 text-sm outline-none focus:border-[#172357] focus:ring-2 focus:ring-[#172357]/20 transition placeholder:text-slate-400"
           placeholder="What's happeing?"  onChange={(e)=>setContent(e.target.value)} value={content}/>
 
           {
@@ -81,10 +81,10 @@ const CreatePost = () => {
             {
               images.map((image , i)=>(
                 <div key={i} className="relative group">
-             <img src={URL.createObjectURL(image)} className="h-20 rounded-md" />
+             <img src={URL.createObjectURL(image)} className="h-24 rounded-xl shadow-sm" />
              <div onClick={()=>setImages(images.filter((_ , index)=> index !== i))}
               className="absolute hidden group-hover:flex justify-center items-center top-0
-              right-0 bottom-0 left-0 bg-black/40 rounded-md cursor-pointer">
+              right-0 bottom-0 left-0 bg-[#172357]/70 rounded-md cursor-pointer">
           <X  className="w-6 h-6 text-white"/>
              </div>
                 </div>
@@ -93,9 +93,9 @@ const CreatePost = () => {
             </div>
           }
 
-          <div className="flex items-center justify-between pt-3 border-t text-gray-300 ">
-            <label htmlFor="images" className="flex items-center gap-2 text-sm text-gray-500
-            hover:text-gray-700 transition cursor-pointer">
+          <div className="flex items-center justify-between pt-3 border-t border-slate-200 ">
+            <label htmlFor="images" className="flex items-center gap-2 text-sm ttext-slate-500
+hover:text-[#172357] transition cursor-pointer">
 
               <Image className="size-6" />
 
@@ -109,9 +109,18 @@ const CreatePost = () => {
                 success:<p>Post Added</p>,
                 error:<p>Post Not Added</p>
               }
-            )} disabled={loading} className="text-sm bg-gradient-to-r from-indigo-500 to-purple-600
-             hover:from-indigo-600 hover:to-purple-700 active:scale-95
-              transition text-white font-medium px-8 py-2 rounded-md cursor-pointer">
+            )} disabled={loading} className="text-sm bg-[#172357]
+hover:bg-[#20398A]
+active:scale-95
+transition
+text-white
+font-semibold
+px-8
+py-3
+rounded-xl
+shadow-md
+hover:shadow-lg
+cursor-pointer">
                 Publish Post
 
             </button>
